@@ -1,5 +1,6 @@
-<h1>Current Player: {{ player }} </h1>
-<button (click)="newGame()">Start new game</button>
+<h1>Tic Tac Toe </h1>
+<h2>Current Player: {{ player }}</h2>
+<button nbButton outline status="danger" (click)="newGame()">Start new game</button>
 
 <main>
   <app-square
@@ -8,13 +9,13 @@
     (click)="makeMove(i)">
   </app-square>
 
-  <h2>
-    Score<br>
-    X: {{ scoreX }}<br>
-    O: {{ scoreO }}
-  </h2>
+</main>
+ <h2>Score</h2>
+ <h3>
+   X: {{ scoreX }} <br>
+   O: {{ scoreO }}
+</h3>
 
   <h2 *ngIf="winner">
     Player {{ winner }} won the game!
   </h2>
-</main>

@@ -1,4 +1,4 @@
-import { Component, OnInit, SystemJsNgModuleLoaderConfig } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-board',
@@ -12,7 +12,7 @@ export class BoardComponent implements OnInit {
   winner!: string;
   scoreX = 0;
   scoreO = 0;
-  shouldShowScore = false;;
+  updatedFlag!: boolean;
 
   constructor() { }
 
@@ -22,8 +22,9 @@ export class BoardComponent implements OnInit {
 
   newGame() {
     this.squares = Array(9).fill(null);
-    this.winner = "";
+    this.winner = '';
     this.xIsNext = true;
+    this.updatedFlag = false;
   }
 
   get player() {
@@ -40,8 +41,9 @@ export class BoardComponent implements OnInit {
   }
 
   updateScore() {
-    if(this.winner != null) {
+    if(this.winner != null && !this.updatedFlag) {
       this.winner === 'X' ? this.scoreX++ : this.scoreO++;
+      this.updatedFlag = true;
     }
   }
 
