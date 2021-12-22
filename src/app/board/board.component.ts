@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoaderConfig } from '@angular/core';
 
 @Component({
   selector: 'app-board',
@@ -10,6 +10,9 @@ export class BoardComponent implements OnInit {
   squares!: any[];
   xIsNext!: boolean;
   winner!: string;
+  scoreX = 0;
+  scoreO = 0;
+  shouldShowScore = false;;
 
   constructor() { }
 
@@ -19,7 +22,7 @@ export class BoardComponent implements OnInit {
 
   newGame() {
     this.squares = Array(9).fill(null);
-    this.winner = '';
+    this.winner = "";
     this.xIsNext = true;
   }
 
@@ -28,11 +31,18 @@ export class BoardComponent implements OnInit {
   }
 
   makeMove(idx: number) {
-    if(!this.squares[idx]) {
+    if(!this.squares[idx] && this.winner === null) {
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
     }
     this.winner = this.calculateWinner();
+    this.updateScore();
+  }
+
+  updateScore() {
+    if(this.winner != null) {
+      this.winner === 'X' ? this.scoreX++ : this.scoreO++;
+    }
   }
 
   calculateWinner() {

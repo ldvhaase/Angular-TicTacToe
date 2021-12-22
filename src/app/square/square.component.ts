@@ -10,7 +10,13 @@ import { Component, Input } from '@angular/core';
     </p>
   `,
   styles: [
-    'button {align-items: center; justify-content: center; width: 100%; height: 100%; font-size: 5em !important; }'
+    `button {
+      height: 100% !important;
+      position: relative;
+      top: 50%;
+      width: 100%;
+      font-size: 5em !important;
+    }`
   ]
 })
 export class SquareComponent  {
