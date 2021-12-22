@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-tictactoe-a78cf": {
+      "hosting": {
+        "tttApp": [
+          "angular-tictactoe-a78cf"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-tictactoe-a78cf"
+  }
+}
