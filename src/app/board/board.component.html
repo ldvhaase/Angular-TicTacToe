@@ -1,6 +1,7 @@
 <h1>Tic Tac Toe </h1>
 <h2>Current Player: {{ player }}</h2>
-<button nbButton outline status="danger" (click)="newGame()">Start new game</button>
+<button nbButton outline status="success" class="navButton" (click)="newGame()">Start new game</button>
+<button nbButton outline status="danger" class="navButton" (click)="resetScore()">Reset Score</button>
 
 <main>
   <app-square
